@@ -33,9 +33,4 @@ public class test {
 					nome = rs.getString("nome");}
 				} catch (Exception e) { }
 			return result;
-			} //fim da class
-		}
-
-	}
-
-}
+			} // fim da class
