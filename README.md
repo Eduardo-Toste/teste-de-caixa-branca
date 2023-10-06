@@ -9,15 +9,10 @@ Testes de caixa branca são cruciais para entender o funcionamento interno do c�
 ## Representacao do Grafo de Fluxo
 ![Grafo de Fluxo](grafo_fluxo.jpeg)
 
-## Erros localizados durante análise
-- O nome da classe do driver MySQL está errado.
-- A exceção Exception é genérica demais.
-- Falta de boas práticas na estrutura do código como um todo.
-- O método conectarBD() é desnecessário.
-- As variáveis nome e result não têm valor inicial.
-- O método verificarUsuario() não fecha a conexão com o banco de dados.
-- Má administração da formatação.
-- Utilização errada do método Catch.
+## Calculo de Complexidade Ciclomatica
+Formula: V(G) = E - N + 2P
 
-## Observações e Requisitos
-Não foi possível rodar o código por conta da quantidade de erros excessiva em sua construção. Foi utilizada a IDE Eclipse e versão 19 do JDK.
+V(G) = 24 - 18 + 2*
+
+## Base de Caminhos utilizada
+1;2;3;4;5;4;6;7;8;9;10;11;12;8;
