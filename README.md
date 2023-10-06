@@ -7,7 +7,7 @@ Desta vez usando o mesmo codigo escolhido para realizamos o teste de Caixa Branc
 Testes de caixa branca são cruciais para entender o funcionamento interno do código. Grafos de fluxo ajudam a visualizar o controle do programa. Complexidade ciclomática mede a complexidade do código. A base de caminhos avalia quantos caminhos diferentes foram executados em testes.
 
 ## Representacao do Grafo de Fluxo
-![Grafo de Fluxo](GRAFO DE FLUXO.jpeg)
+![Grafo de Fluxo](grafo_fluxo.jpeg)
 
 ## Erros localizados durante análise
 - O nome da classe do driver MySQL está errado.
