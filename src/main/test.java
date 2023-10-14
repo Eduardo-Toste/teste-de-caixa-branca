@@ -5,32 +5,32 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/*1*/public class test {
+	 public class test {
 
-/*2*/public static void main(String[] args) {
-/*3*/	public Connection conectarBD() {
-/*4*/		Connection conn = null;
+	 public static void main(String[] args) {
+		 public Connection conectarBD() {
+			 Connection conn = null;
 			try {
 				Class.forName("com.mysql.Driver.Manager").newInstance();
 				String url = "jdbc:mysql://157.0.0.1/test?user=lopes&password=123";
-/*5*/			conn = DriverManager.getConnection(url);
+				conn = DriverManager.getConnection(url);
 			} catch (Exception e) { }
 			return conn; }
-/*6*/	public String nome="";
-/*7*/	public boolean result = false;
-/*8*/	public boolean verificarUsuario(String login, String senha) {
-/*9*/			String sql = ""; 
-/*10*/			public Connection conectarBD();
+		public String nome="";
+		public boolean result = false;
+		public boolean verificarUsuario(String login, String senha) {
+				String sql = ""; 
+				public Connection conectarBD();
 			//INSTRUÇÃO SQL
-/*11*/		sql += "select nome from usuario ";
-/*12*/		sql += "where login = " + "'" + login + "'";
-/*13*/		sql += " and senha = " + "'" + senha + "';";
+			sql += "select nome from usuario ";
+			sql += "where login = " + "'" + login + "'";
+			sql += " and senha = " + "'" + senha + "';";
 			try {
-/*14*/			Statement st = conn.createStatement();
-/*15*/			ResultSet rs = st.executeQuery(sql);
-/*16*/			if(rs.next()) {
-/*17*/				result = true;
-/*18*/				nome = rs.getString("nome");}
+				Statement st = conn.createStatement();
+				ResultSet rs = st.executeQuery(sql);
+				if(rs.next()) {
+					result = true;
+					nome = rs.getString("nome");}
 				} catch (Exception e) { }
 			return result;
 			} // fim da class
