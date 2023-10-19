@@ -6,53 +6,50 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * A classe Test é responsável por conectar a um banco de dados MySQL e verificar um usuário.
+ * Esta classe, intitulada 'test', disponibiliza métodos para estabelecer conexão com um banco de dados MySQL
+ * e examinar a presença de um usuário com base em um login e senha fornecidos.
  */
-public class Test {
+public class test {
 
     /**
-     * Método para estabelecer uma conexão com o banco de dados MySQL.
-     * @return A conexão com o banco de dados ou null se ocorrer um erro na conexão.
+     * Este método cria uma conexão com o banco de dados MySQL.
+     *
+     * @return Uma instância de conexão com o banco de dados MySQL.
      */
     public Connection conectarBD() {
         Connection conn = null;
         try {
-            // Carrega o driver JDBC do MySQL
+            // Carrega o driver do MySQL
             Class.forName("com.mysql.Driver.Manager").newInstance();
-            // Configuração da URL de conexão com o banco de dados
+            // Configura a URL de conexão
             String url = "jdbc:mysql://157.0.0.1/test?user=lopes&password=123";
+            // Estabelece a conexão com o banco de dados
             conn = DriverManager.getConnection(url);
         } catch (Exception e) {
-            e.printStackTrace();
+            // Lida com exceções, caso ocorram
         }
         return conn;
     }
 
-    /**
-     * Nome do usuário recuperado após a verificação.
-     */
+    // Variáveis de instância para armazenar o nome e o resultado da verificação do usuário
     public String nome = "";
-
-    /**
-     * Resultado da verificação do usuário.
-     */
     public boolean result = false;
 
     /**
-     * Verifica a existência de um usuário no banco de dados.
-     * @param login O nome de usuário a ser verificado.
+     * Este método verifica a presença de um usuário com base no login e senha fornecidos.
+     *
+     * @param login O nome de usuário a ser examinado.
      * @param senha A senha do usuário a ser verificada.
-     * @return true se o usuário existe no banco de dados, false caso contrário.
+     * @return 'true' se o usuário existe e 'false' caso contrário.
      */
     public boolean verificarUsuario(String login, String senha) {
-        Connection conn = conectarBD();
-        if (conn == null) {
-            return false;
-        }
+        String sql = "";
+        Connection conn = conectarBD(); // Obtém uma conexão com o banco de dados
 
-        String sql = "SELECT nome FROM usuario " +
-                     "WHERE login = '" + login + "' " +
-                     "AND senha = '" + senha + "';";
+        // INSTRUÇÃO SQL
+        sql += "select nome from usuario ";
+        sql += "where login = " + "'" + login + "'";
+        sql += " and senha = " + "'" + senha + "';";
 
         try {
             Statement st = conn.createStatement();
@@ -62,15 +59,9 @@ public class Test {
                 nome = rs.getString("nome");
             }
         } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // Fecha a conexão com o banco de dados
-            try {
-                conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            // Lida com exceções, caso ocorram
         }
         return result;
     }
-}
+
+    // Fim da classe 'test'
